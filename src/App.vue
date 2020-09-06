@@ -18,9 +18,8 @@
             v-on:blur="updateTask($event, todo)"
             v-bind:class="{completed: todo.completed}"
           >{{ todo.label }}</p>
-          <div>
+          <div class="delete" @click="removeTodo($event, todo)">
             <md-icon>delete</md-icon>
-            <span class="md-list-item-text"></span>
           </div>
         </div>
       </li>
@@ -111,7 +110,7 @@ h1 {
 .md-field {
   border: 2px solid royalblue;
   border-radius: 5px;
-  font-family: "Niconne", cursive;
+  font-family: "Dancing Script", cursive;
   padding: 0 !important;
 }
 
@@ -142,6 +141,10 @@ p {
 
 .md-checkbox {
   margin-right: 10px !important;
+}
+
+.delete:hover {
+  cursor: pointer;
 }
 
 @media all and (max-width: 600px) {
